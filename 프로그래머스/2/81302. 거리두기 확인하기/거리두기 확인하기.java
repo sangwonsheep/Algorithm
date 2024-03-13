@@ -1,6 +1,8 @@
 class Solution {
     
-    
+    // 상, 하, 좌, 우
+    static int[] dx = {-1, 1, 0, 0};
+    static int[] dy = {0, 0, -1, 1};
     
     public int[] solution(String[][] places) {
         int[] answer = new int[places.length];
@@ -15,20 +17,20 @@ class Solution {
     }
     
     public boolean isSafe(char[][] place) {
-    int[] dx = {0, 1, 0, -1};
-    int[] dy = {1, 0, -1, 0};
-    for (int y = 0; y < 5; ++y) {
-        for (int x = 0; x < 5; ++x) {
-            if (place[y][x] == 'P') {
+    
+    for (int x = 0; x < 5; ++x) {
+        for (int y = 0; y < 5; ++y) {
+            if (place[x][y] == 'P') {
                 for (int i = 0; i < 4; ++i) {
                     int nx = x + dx[i];
                     int ny = y + dy[i];
-                    if (nx < 0 || ny < 0 || nx >= 5 || ny >= 5 || place[ny][nx] == 'X')
+                    if (nx < 0 || ny < 0 || nx >= 5 || ny >= 5 || place[nx][ny] == 'X')
                         continue;
-                    if (place[ny][nx] == 'B' || place[ny][nx] == 'P')
+                    
+                    if (place[nx][ny] == 'B' || place[nx][ny] == 'P')
                         return false;
-                    // char 배열을 직접 변경합니다.
-                    place[ny][nx] = 'B';
+
+                    place[nx][ny] = 'B';
                 }
             }
         }

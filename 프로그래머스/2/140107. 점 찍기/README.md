@@ -1,10 +1,10 @@
 # [level 2] 점 찍기 - 140107 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/140107) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/140107#qna) 
 
 ### 성능 요약
 
-메모리: 74.2 MB, 시간: 0.11 ms
+메모리: 79.3 MB, 시간: 0.20 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 03월 13일 15:20:53
+2024년 03월 13일 15:23:05
 
 ### 문제 설명
 

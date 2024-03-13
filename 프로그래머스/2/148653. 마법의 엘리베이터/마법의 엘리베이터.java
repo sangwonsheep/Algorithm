@@ -9,20 +9,17 @@ class Solution {
                 answer += (10 - remain);
             }
             
-            // 1의 자리 수가 5일 경우 2가지로 처리해주셔야 합니다.
-            // 10의 자리가 5이상이면 10 추가해주셔야 하고 아니라면 감소시켜주셔야 합니다.
+            // 10의 자리가 5이상이면 10의 자리를 하나 더 늘려야 버튼 횟수를 한 번 줄일 수 있음.
             else if(remain == 5){
                 if(storey % 100 >= 50){
-                    storey += 10;
+                    storey += remain; // storey += 10; 이 코드로 해도 상관없음.
                 }
                 answer += remain;
             }
             else {
                 answer += remain;
             }
-            System.out.println(storey + " " + remain + " " + answer);
             storey /= 10;
-            
         }
         return answer;
     }

@@ -33,6 +33,7 @@ class Solution {
             }
             groups.add(group);
             
+            // 그룹 수가 곡괭이 개수보다 많아지면 처리가 불가능하므로 break
             if(groups.size() == pickCount)
                 break;
         }

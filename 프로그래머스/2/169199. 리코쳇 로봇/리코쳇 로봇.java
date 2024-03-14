@@ -17,6 +17,7 @@ class Solution {
         for(int i = 0; i < board.length; i++) {
             graph[i] = board[i].toCharArray();
         }
+        // 시작 좌표 구하기
         int[] point = findStartPoint();
         int startX = point[0];
         int startY = point[1];
@@ -24,7 +25,6 @@ class Solution {
         return bfs(startX, startY);
     }
 
-    // (0, 6)
     public int bfs(int x, int y) {
         int answer = Integer.MAX_VALUE;
         Queue<Node> q = new LinkedList<>();
@@ -36,6 +36,7 @@ class Solution {
             y = node.getY();
             int count = node.getCount();
 
+            // 목적지 도착
             if(graph[x][y] == 'G'){
                 answer = Math.min(answer, count);
                 continue;
@@ -54,6 +55,7 @@ class Solution {
                     ny += dy[i];
                 }
 
+                // 빼는 이유 : 장애물 좌표나 벗어난 범위의 좌표로 설정되어 있기 때문에
                 nx -= dx[i];
                 ny -= dy[i];
 

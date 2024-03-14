@@ -2,11 +2,12 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] picks, String[] minerals) {
-        int[][] weights = {{1,1,1},{5,1,1},{25,5,1}};
+        int[][] weights = {{1,1,1},{5,1,1},{25,5,1}}; // 다이아, 철, 돌 피로도
         
         int answer = 0;
-        int pickCount = Arrays.stream(picks).sum();
+        int pickCount = Arrays.stream(picks).sum(); // 곡괭이 개수
         
+        // 광물을 5개씩 묶은 그룹들을 각 그룹의 광물의 가중치 합의 내림차순에 따라 정렬한 큐
         PriorityQueue<Group> groups = new PriorityQueue<>(Collections.reverseOrder());
         
         // 5개씩 묶은 그룹의 가중치 구하기

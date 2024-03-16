@@ -1,17 +1,18 @@
 class Solution {
     
     boolean[] visited;
-    int answer;
+    int answer = Integer.MAX_VALUE;
 
     public int solution(String begin, String target, String[] words) {
         visited = new boolean[words.length];
         dfs(begin, target, words, 0);
-        return answer;
+        
+        return answer == Integer.MAX_VALUE ? 0 : answer;
     }
 
     public void dfs(String begin, String target, String[] words, int count) {
         if(begin.equals(target)) {
-            answer = count;
+            answer = Math.min(answer, count);
             return;
         }
 

@@ -1,37 +1,37 @@
 class Solution {
     
     // 상, 하, 좌, 우
-    static int[] dx = {-1, 1, 0, 0};
-    static int[] dy = {0, 0, -1, 1};
+    static int[] dx = {0, 0, -1, 1};
+    static int[] dy = {-1, 1, 0, 0};
     
     public int[] solution(String[][] places) {
-        int[] answer = new int[places.length];
-        
-        for(int i = 0; i < places.length; i++) {
-            char[][] place = new char[5][5];
+        int[] answer = new int[5];
+        for(int i = 0; i < 5; i++) {
+            char[][] room = new char[5][5];
             for(int j = 0; j < 5; j++) {
-                place[j] = places[i][j].toCharArray();
+                room[j] = places[i][j].toCharArray();
             }
-            answer[i] = check(place) ? 1 : 0;
+            answer[i] = check(room) ? 1 : 0;
         }
+        
         return answer;
     }
     
-    public boolean check(char[][] place) {
-        for(int x = 0; x < 5; x++){
-            for(int y = 0; y < 5; y++){
-                if(place[x][y] == 'P'){
+    public boolean check(char[][] room) {
+        for(int y = 0; y < 5; y++) {
+            for(int x = 0; x < 5; x++) {
+                if(room[y][x] == 'P'){
                     for(int i = 0; i < 4; i++) {
                         int nx = x + dx[i];
                         int ny = y + dy[i];
-                        
-                        if(nx < 0 || ny < 0 || nx >= 5 || ny >= 5 || place[nx][ny] == 'X')
+
+                        if(nx >= 5 || ny >= 5 || nx < 0 || ny < 0 || room[ny][nx] == 'X')
                             continue;
-
-                        if(place[nx][ny] == 'B' || place[nx][ny] == 'P')
+                        
+                        if(room[ny][nx] == 'P' || room[ny][nx] == 'V')
                             return false;
-
-                        place[nx][ny] = 'B';
+                        
+                        room[ny][nx] = 'V';
                     }
                 }
             }

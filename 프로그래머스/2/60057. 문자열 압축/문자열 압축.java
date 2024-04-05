@@ -15,8 +15,6 @@ class Solution {
                 split.add(s.substring(j, lastIndex));
             }
             
-            // System.out.println("배열 체크 : " + split.get(split.size()-1));
-            
             int count = 1;
             for(int j = 0; j < split.size()-1; j++) {
                 if(split.get(j).equals(split.get(j+1))){

@@ -1,8 +1,6 @@
 class Solution {
     public int[] solution(String s) {
         int[] answer = new int[2];
-        int convertCount = 0;
-        int zeroCount = 0;
         
         while(!s.equals("1")){
             StringBuilder sb = new StringBuilder();
@@ -12,14 +10,12 @@ class Solution {
                     sb.append(c);
                 }
                 else {
-                    zeroCount++;
+                    answer[1]++;
                 }
             }
             s = Integer.toString(sb.length(), 2);
-            convertCount++;
+            answer[0]++;
         }
-        answer[0] = convertCount;
-        answer[1] = zeroCount;
         
         return answer;
     }

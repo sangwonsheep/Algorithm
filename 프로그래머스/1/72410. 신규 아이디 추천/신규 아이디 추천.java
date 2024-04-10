@@ -14,8 +14,8 @@ class Solution {
             answer = answer.replaceAll("\\.$", ""); // 6
         }
         
-        while(answer.length() < 3) {
-            answer += answer.charAt(answer.length()-1);
+        while(answer.length() < 3) { 
+            answer += answer.charAt(answer.length()-1); // 7
         }
         
         return answer;

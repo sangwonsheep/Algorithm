@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Solution {
@@ -9,7 +8,6 @@ public class Solution {
 
         int t = input.nextInt();
 
-        // 우, 하, 좌, 상
         int[] month_day = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
         for(int tc = 1; tc <= t; tc++) {

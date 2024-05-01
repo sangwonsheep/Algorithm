@@ -21,20 +21,13 @@ public class Solution {
             int index = 0;
             int sum = 0;
             for (int i = 0; i < n; i++) {
-                if(i <= (n/2)) {
-                    for (int j = (n/2)-index; j <= (n/2)+index; j++) {
-                        sum += array[i][j];
-                    }
-                    if(index == (n/2)) {
-                        index--;
-                        continue;
-                    }
+                for (int j = (n/2)-index; j <= (n/2)+index; j++) {
+                    sum += array[i][j];
+                }
+                if(i < (n/2)) {
                     index++;
                 }
                 else {
-                    for (int j = (n/2)-index; j <= (n/2)+index; j++) {
-                        sum += array[i][j];
-                    }
                     index--;
                 }
             }

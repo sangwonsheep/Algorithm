@@ -4,10 +4,8 @@ class Solution {
     
     static Set<Integer> set = new HashSet<>();
     static boolean[] visited;
-    static boolean[] check = new boolean[10000001];
     
     public int solution(String numbers) {
-        setPrime(check.length-1);
         
         for(int i = 0; i < numbers.length(); i++) {
             visited = new boolean[numbers.length()];
@@ -38,7 +36,7 @@ class Solution {
         Iterator iter = set.iterator();
         while(iter.hasNext()){
             int n = (int) iter.next();
-            if(!check[n]){
+            if(is_prime(n)){
                 count++;
             }
                 
@@ -46,15 +44,12 @@ class Solution {
         return count;
     }
     
-    private void setPrime(int n) {
-		check[0] = check[1] = true;
-		if(n < 2)
-			return;
+    private boolean is_prime(int n) {
+		if(n <= 1) return false;
         
         for(int i = 2; i <= Math.sqrt(n); i++) {
-            for(int j = i*i; j <= n; j += i){
-                check[j] = true;
-            }
+            if(n % i == 0) return false;
         }
+        return true;
     }
 }

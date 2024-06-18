@@ -8,18 +8,19 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-//        Scanner input = new Scanner(System.in);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
         String s = br.readLine();
 
-        BigInteger bigInteger = new BigInteger("" + (s.charAt(0) - 'a' + 1));
-        for (int i = 1; i < s.length(); i++) {
-            int c = (s.charAt(i) - 'a' + 1) * (int) Math.pow(31, i);
-            bigInteger = bigInteger.add(new BigInteger("" + c));
+        int m = 1234567891;
+        long sum = 0;
+        long pow = 1;
+        for (int i = 0; i < n; i++) {
+            sum += (s.charAt(i) - 'a' + 1) * pow;
+            pow = (pow * 31) % m;
         }
-        System.out.println(bigInteger);
+        System.out.println(sum % m);
     }
 
 }

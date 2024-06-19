@@ -10,7 +10,7 @@ class Solution {
         for(int i = 0; i <= n; i++) {
             result = fibonacci(i);
         }
-        return result % 1234567;
+        return result;
     }
     
     private int fibonacci(int n) {

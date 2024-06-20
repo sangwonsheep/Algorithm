@@ -24,10 +24,9 @@ public class Main {
 
     private static long p(int n) {
         if(mem[n] != -1) return mem[n];
-
-        if(n == 0) return 0;
+        
         if(n <= 3) return 1;
-        if(n == 4 || n == 5) return 2;
+        if(n <= 5) return 2;
 
         return mem[n] = p(n-1) + p(n-5);
     }

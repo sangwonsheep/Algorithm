@@ -18,7 +18,7 @@ public class Main {
         StringTokenizer st = new StringTokenizer(s);
 
         mem = new int[n];
-        Arrays.fill(mem, -1);
+        Arrays.fill(mem, Integer.MIN_VALUE);
 
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
@@ -33,10 +33,7 @@ public class Main {
     }
 
     private static int recur(int n, int[] array) {
-        if(n < 0)
-            return 0;
-
-        if(mem[n] != -1)
+        if(mem[n] != Integer.MIN_VALUE)
             return mem[n];
 
         mem[n] = Math.max(recur(n-1, array) + array[n], array[n]);

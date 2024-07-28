@@ -1,19 +1,23 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
 
     static int[][] chairs;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner input = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int n = input.nextInt();
+        int n = Integer.parseInt(br.readLine());
         chairs = new int[n][n];
 
         for (int i = 0; i < n; i++) {
+            StringTokenizer stringTokenizer = new StringTokenizer(br.readLine());
             for (int j = 0; j < n; j++) {
-                chairs[i][j] = input.nextInt();
+                chairs[i][j] = Integer.parseInt(stringTokenizer.nextToken());
             }
         }
         System.out.println(recur(0, 0, n));
@@ -39,5 +43,6 @@ public class Main {
         Collections.sort(list);
         return list.get(1);
     }
+
 
 }

@@ -2,55 +2,57 @@ import java.util.*;
 
 public class Main {
 
-    static boolean[][] graph;
+    static int[][] graph;
     static boolean[] visited;
+    static int n, m, v;
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        int n = input.nextInt();
-        int m = input.nextInt();
-        int v = input.nextInt();
+        n = input.nextInt();
+        m = input.nextInt();
+        v = input.nextInt();
 
-        graph = new boolean[n+1][n+1];
+        graph = new int[n+1][n+1];
         visited = new boolean[n+1];
 
-        for(int i = 0; i < m; i++) {
-            int a = input.nextInt();
-            int b = input.nextInt();
+        for (int i = 0; i < m; i++) {
+            int v1 = input.nextInt();
+            int v2 = input.nextInt();
 
-            graph[a][b] = true;
-            graph[b][a] = true;
+            graph[v1][v2] = 1;
+            graph[v2][v1] = 1;
         }
-        dfs(n, v);
+        dfs(v);
         System.out.println();
         visited = new boolean[n+1];
-        bfs(n, v);
+        bfs(v);
     }
 
-    public static void dfs(int n, int v) {
-        visited[v] = true;
-        System.out.print(v + " ");
+    public static void dfs(int index) {
+        if(visited[index])
+            return;
 
-        for(int i = 1; i <= n; i++) {
-            if(!visited[i] && graph[v][i]){
-                dfs(n, i);
-            }
+        visited[index] = true;
+        System.out.print(index + " ");
+        for (int i = 1; i <= n; i++) {
+            if(graph[index][i] == 1)
+                dfs(i);
         }
     }
 
-    public static void bfs(int n, int v) {
+    public static void bfs(int index) {
         Queue<Integer> q = new LinkedList<>();
-        visited[v] = true;
-        q.offer(v);
+        q.offer(index);
+        visited[index] = true;
 
-        while(!q.isEmpty()) {
-            int x = q.poll();
-            System.out.print(x + " ");
+        while (!q.isEmpty()) {
+            int vertex = q.poll();
+            System.out.print(vertex + " ");
 
-            for(int i = 1; i <= n; i++) {
-                if(!visited[i] && graph[x][i]){
+            for (int i = 1; i <= n; i++) {
+                if(!visited[i] && graph[vertex][i] == 1){ // 방문, 연결 확인
                     q.offer(i);
                     visited[i] = true;
                 }

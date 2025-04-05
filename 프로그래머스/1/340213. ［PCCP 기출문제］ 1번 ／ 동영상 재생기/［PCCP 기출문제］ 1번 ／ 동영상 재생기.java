@@ -7,25 +7,25 @@ class Solution {
         int opStart = minuteToSecond(new StringTokenizer(op_start, ":"));
         int opEnd = minuteToSecond(new StringTokenizer(op_end, ":"));
         
-        if (opStart <= start && start <= opEnd) {
+        if (opStart <= start && start <= opEnd) { // 오프닝 구간 확인
             start = opEnd;
         }
         
         for (int i = 0; i < commands.length; i++) {
-            if (commands[i].equals("next")) {
+            if (commands[i].equals("next")) { // next
                 start += 10;
                 if (start > video) {
                     start = video;
                 }
             }
-            else {
+            else { // prev
                 start -= 10;
                 if (start < 0) {
                     start = 0;
                 }
             }
                        
-            if (opStart <= start && start <= opEnd) {
+            if (opStart <= start && start <= opEnd) { // 오프닝 구간 확인
                 start = opEnd;
             }
         }

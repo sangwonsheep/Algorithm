@@ -14,7 +14,6 @@ class Solution {
                         schedule += (100 - 60); // 시 자릿수 올리기
                     }
                     int time = timelogs[i][j];
-                    System.out.println(schedule + " " + time);
                     
                     if (schedule < time) {
                         isLate = true;
